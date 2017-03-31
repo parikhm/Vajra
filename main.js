@@ -1,15 +1,37 @@
-'use strict';
+'use strict'
 
-var app = require('app');
-var BrowserWindow = require('browser-window');
+const {
+    app,
+    BrowserWindow
+} = require('electron')
+const path = require('path')
+const url = require('url')
 
-var mainWindow = null;
+let win
 
-app.on('ready', function() {
-    mainWindow = new BrowserWindow({
-        height: 600,
-        width: 800
-    });
+function createWindow() {
+    win = new BrowserWindow({
+        width: 800,
+        height: 600
+    })
 
-    mainWindow.loadUrl('file://' + __dirname + '/app/index.html');
-});
+    win.loadURL(url.format({
+        pathname: path.join(__dirname, 'app', 'index.html'),
+        protocol: 'file:',
+        slashes: true
+    }))
+
+    win.on('closed', () => {
+        win = null
+    })
+}
+
+app.on('ready', createWindow)
+
+app.on('window-all-closed', () => {
+    // On macOS it is common for applications and their menu bar
+    // to stay active until the user quits explicitly with Cmd + Q
+    if (process.platform !== 'darwin') {
+        app.quit()
+    }
+})
