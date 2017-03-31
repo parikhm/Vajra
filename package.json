@@ -1,0 +1,11 @@
+{
+  "name": "vajra",
+  "version": "1.0.0",
+  "description": "The tool used to analyse and kill processes that frozes linux",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Meet Parikh",
+  "license": "GPL-2.0"
+}
