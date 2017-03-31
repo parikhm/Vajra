@@ -4,8 +4,12 @@
   "description": "The tool used to analyse and kill processes that frozes linux",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron ."
   },
   "author": "Meet Parikh",
-  "license": "GPL-2.0"
+  "license": "GPL-2.0",
+  "devDependencies": {
+    "electron-prebuilt": "^1.4.13"
+  }
 }
